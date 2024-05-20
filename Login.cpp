@@ -1,0 +1,90 @@
+#include <iostream>
+#include "Login.h"
+#include "Funciones.h"
+
+
+char* Login :: getUsuario()
+{
+    return usuario;
+}
+
+char* Login :: getPass()
+{
+    return pass;
+}
+
+bool Login :: getPudoIngresar()
+{
+    return pudoIngresar;
+}
+
+void Login::setPudoIngresar(bool i){
+    pudoIngresar=i;
+}
+
+
+void Login::cargarLogin()
+{
+    dibujarCuadro(1,1,119,30);//Cuadro grande
+	dibujarCuadro(32,5,87,7);//Cuadro titulo
+    rlutil::locate(44,6);
+    cout<<"BIENVENIDO AL SISTEMA DE GESTION"<<endl;
+    rlutil::locate(51,10);
+    cout<<"INGRESE USUARIO: ";
+    cargarCadena(usuario,20);
+    rlutil::locate(51,12);
+    cout<<"INGRESE PASSWORD: ";
+    cargarContrasena(pass,20);
+
+
+}
+
+void Login :: iniciarSesion ()
+{
+    //bool inicio= false;
+    while(cantidadIntentos<=3)
+    {
+        rlutil::setColor(rlutil::CYAN);
+
+        cargarLogin();
+        if ((strcmp(usuario, USUARIO) == 0) && (strcmp(pass, PASS) == 0))
+        {
+            pudoIngresar=true;
+            int f = 67;
+            int x = 1000;
+
+            for (int i = 0; i < 3; i++)
+            {
+                rlutil::locate(57, 25);
+                cout << "INGRESANDO";
+                rlutil::locate(f, 25);
+                cout << ".";
+                f += 1;
+                Sleep(x);
+            }
+            rlutil::cls();
+            break;
+        }
+        else
+        {
+            int x = 1000;
+            rlutil::setColor(rlutil::RED);
+            rlutil::locate(48, 25);
+            cout<<"CREDENCIALES INCORRECTAS";
+            Sleep(x);
+            rlutil::cls();
+        }
+        //rlutil::cls();
+        cantidadIntentos++;
+
+        if(cantidadIntentos==4)
+        {
+            rlutil::locate(28, 12);
+            rlutil::setColor(rlutil::RED);
+            cout << "SE AGOTARON LA CANTIDAD DE INTENTOS, VUELVA A INTENTAR MAS TARDE";
+        }
+
+    }
+
+}
+
