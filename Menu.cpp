@@ -2,7 +2,7 @@
 #include "Menu.h"
 #include "rlutil.h"
 #include "Funciones.h"
-using namespace std;
+
 
 void Menu::seleccionarItem(const char* text, int posx, int posy, bool seleccionado){
     if(seleccionado){
@@ -14,7 +14,7 @@ void Menu::seleccionarItem(const char* text, int posx, int posy, bool selecciona
         rlutil::setBackgroundColor(rlutil::BLACK);
     }
     rlutil::locate(posx,posy);
-    cout<<text<<endl;
+    std::cout<<text<<std::endl;
     rlutil::setColor(rlutil::CYAN);
 
     rlutil::setBackgroundColor(rlutil::BLACK);
@@ -43,7 +43,7 @@ void Menu::mostrarMenu(){
         {
         case 14:
             rlutil::locate(56,13 + y);
-            cout<<" "<<endl;
+            std::cout<<" "<<std::endl;
             y--;
             if(y<0){
                 y=0;
@@ -51,7 +51,7 @@ void Menu::mostrarMenu(){
             break;
         case 15:
             rlutil::locate(56,13 + y);
-            cout<<" "<<endl;
+            std::cout<<" "<<std::endl;
             y++;
             if(y>4){
                 y=4;

@@ -28,12 +28,12 @@ void Login::cargarLogin()
     dibujarCuadro(1,1,119,30);//Cuadro grande
 	dibujarCuadro(32,5,87,7);//Cuadro titulo
     rlutil::locate(44,6);
-    cout<<"BIENVENIDO AL SISTEMA DE GESTION"<<endl;
+    std::cout<<"BIENVENIDO AL SISTEMA DE GESTION"<<std::endl;
     rlutil::locate(51,10);
-    cout<<"INGRESE USUARIO: ";
+    std::cout<<"INGRESE USUARIO: ";
     cargarCadena(usuario,20);
     rlutil::locate(51,12);
-    cout<<"INGRESE PASSWORD: ";
+    std::cout<<"INGRESE PASSWORD: ";
     cargarContrasena(pass,20);
 
 
@@ -56,9 +56,9 @@ void Login :: iniciarSesion ()
             for (int i = 0; i < 3; i++)
             {
                 rlutil::locate(57, 25);
-                cout << "INGRESANDO";
+                std::cout << "INGRESANDO";
                 rlutil::locate(f, 25);
-                cout << ".";
+                std::cout << ".";
                 f += 1;
                 Sleep(x);
             }
@@ -70,7 +70,7 @@ void Login :: iniciarSesion ()
             int x = 1000;
             rlutil::setColor(rlutil::RED);
             rlutil::locate(48, 25);
-            cout<<"CREDENCIALES INCORRECTAS";
+            std::cout<<"CREDENCIALES INCORRECTAS";
             Sleep(x);
             rlutil::cls();
         }
@@ -81,7 +81,7 @@ void Login :: iniciarSesion ()
         {
             rlutil::locate(28, 12);
             rlutil::setColor(rlutil::RED);
-            cout << "SE AGOTARON LA CANTIDAD DE INTENTOS, VUELVA A INTENTAR MAS TARDE";
+            std::cout << "SE AGOTARON LA CANTIDAD DE INTENTOS, VUELVA A INTENTAR MAS TARDE";
         }
 
     }

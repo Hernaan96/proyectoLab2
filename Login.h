@@ -5,7 +5,7 @@
 #include <cstdio>
 #include <cstring>
 #include "rlutil.h"
-using namespace std;
+
 
 #define USUARIO "admin"
 #define PASS "1234"

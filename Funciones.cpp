@@ -12,7 +12,7 @@ void cargarCadena(char *palabra, int tamano){
 
     for (i=0; i<tamano; i++){
 
-        palabra[i]=cin.get();
+        palabra[i]=std::cin.get();
 
         if (palabra[i]=='\n'){
 

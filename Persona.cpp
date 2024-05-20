@@ -1,5 +1,16 @@
 #include "Persona.h"
+#include "Funciones.h"
+#include <iostream>
+#include <cstring>
 
+
+Persona::Persona(){
+_id=0;
+strcpy(_nombre, " ");
+strcpy(_apellido, " ");
+_dni=0;
+_estado=false;
+}
 
 int Persona:: getId(){return _id;}
 const char* Persona::getNombre(){return _nombre;}
@@ -16,16 +27,24 @@ void Persona::setDni(int dni){_dni=dni;}
 void Persona::setEstado(bool estado){_estado=estado;}
 
 void Persona::Cargar(){
-    cout<<"Ingrese ID: ";
-    cin>>_id;
-    cout>>"Nombre: ";
-    cargarCadena(_nombre,29);
-    cout<<"Apellido: ";
-    cargarCadena(_apellido,29);
-    cout<<"Fecha de nacimiento: ";
+    std::cout << "Ingrese ID: ";
+    std::cin >> _id;
+    std::cout << "Nombre: ";
+    cargarCadena(_nombre, 29);
+    std::cout << "Apellido: ";
+    cargarCadena(_apellido, 29);
+    std::cout << "Fecha de nacimiento: ";
     _nacimiento.Cargar();
-    cout<<"Dni: ";
-    cin>>_dni;
-    _estado=true;
+    std::cout << "Dni: ";
+    std::cin >> _dni;
+    _estado = true;
 }
-void Persona::Mostrar();
+void Persona::Mostrar() {
+        std::cout << "ID: " << _id << std::endl;
+        std::cout << "Nombre: " << _nombre << std::endl;
+        std::cout << "Apellido: " << _apellido <<std::endl;
+        std::cout << "Fecha de Nacimiento: ";
+        _nacimiento.Mostrar();
+        std::cout << "DNI: " << _dni << std::endl;
+        std::cout << "Estado: " << (_estado ? "Activo" : "Inactivo") <<std::endl;
+    }

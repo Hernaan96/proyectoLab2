@@ -1,7 +1,8 @@
 #pragma once
+#include "Fecha.h"
 
 class Persona{
-private:
+protected:
     int _id;
     char _nombre[30];
     char _apellido[30];
@@ -9,6 +10,8 @@ private:
     int _dni;
     bool _estado;
 public:
+    Persona();
+
     int getId();
     const char* getNombre();
     const char* getApellido();
